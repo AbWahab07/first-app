@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::bind('song', function ($handle){
+    return App\Song::whereHandle($handle)->first();
+});
+
+Route::resource('songs', 'SongController');
